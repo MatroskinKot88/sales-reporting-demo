@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sales Reporting Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="demo.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">SALES REPORTING DEMO</p>
+      <h1>От действия менеджера<br>до сводки отдела продаж</h1>
+      <p>Добавьте запись и посмотрите, как она меняет журнал команды, KPI и отчёт для руководителя.</p>
+      <p class="demo-note">Демонстрационный период · 2–6 ноября 2026 · вымышленные данные</p>
+    </header>
+
+    <section class="panel" aria-labelledby="activity-title">
+      <h2 id="activity-title">1. Действие менеджера</h2>
+      <form id="activity">
+        <label>Менеджер<select name="manager"><option>Анна Волкова</option><option>Илья Орлов</option></select></label>
+        <label>Категория<select name="category"><option>Первая отгрузка</option><option>Расширение ассортимента</option><option>Обычное действие</option></select></label>
+        <label>Клиент<input name="client" value="Студия Маяк" required maxlength="80"></label>
+        <label>Результат<input name="result" value="Согласовали регулярные поставки" required maxlength="180"></label>
+        <button>Подтвердить запись</button>
+        <p id="feedback" role="status"></p>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="journal-title">
+      <h2 id="journal-title">2. Журнал команды</h2>
+      <p>В журнал попадают все действия. Первые отгрузки и расширения также попадают в месячный реестр.</p>
+      <div class="table-wrap"><table><thead><tr><th>Менеджер</th><th>Клиент</th><th>Категория</th><th>Результат</th><th>Месячный реестр</th></tr></thead><tbody id="journal"></tbody></table></div>
+    </section>
+
+    <section class="panel" aria-labelledby="kpi-title">
+      <h2 id="kpi-title">3. План и факт</h2>
+      <p>Два показателя из демо. У каждой строки есть свой план и фактическое количество событий.</p>
+      <div class="table-wrap"><table><thead><tr><th>Команда</th><th>Первые отгрузки</th><th>Расширения</th></tr></thead><tbody id="kpi"></tbody></table></div>
+    </section>
+
+    <section class="panel" aria-labelledby="report-title">
+      <h2 id="report-title">4. Сводка руководителя</h2>
+      <label for="plans" class="screen-only">Планы на следующую неделю</label>
+      <textarea id="plans" class="screen-only" rows="3" maxlength="700">Согласовать условия повторной поставки с новыми клиентами.</textarea>
+      <article id="summary" aria-live="polite"></article>
+      <div class="actions screen-only">
+        <button id="print" type="button">Печать / сохранить PDF</button>
+        <button id="reset" type="button" class="secondary">Сбросить пример</button>
+      </div>
+    </section>
+    <footer>Браузерный пример без подключения к Telegram и Google Sheets. Изменения хранятся до перезагрузки страницы.</footer>
+  </main>
+</body>
+</html>
